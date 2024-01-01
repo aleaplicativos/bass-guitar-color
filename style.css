@@ -1,0 +1,157 @@
+body,
+html {
+  height: 100%;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  font-family: arial;
+  font-size: 12px;
+}
+
+body {
+  --size: 4px;
+  --size2: calc(var(--size) * 2);
+  --size4: calc(var(--size) * 4);
+  background: linear-gradient(to right, #24243e, #302b63, #24243e);
+}
+body.fade {
+  transition: 0.6s ease-in-out;
+}
+
+.colors {
+  position: absolute;
+  bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  left: var(--size4);
+  top: 16px;
+}
+.colors__labels {
+  display: flex;
+  margin-bottom: 0.5em;
+  gap: 16px;
+}
+.colors__labels span {
+  display: block;
+  flex: 2;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9em;
+  color: white;
+  text-shadow: 0px 0px 4px black;
+}
+.colors__labels span:first-child {
+  flex: 1;
+}
+.colors__inputs {
+  display: flex;
+  gap: 16px;
+}
+.colors .jscolor {
+  display: block;
+  border: 0;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin: 0;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.bass {
+  width: 1000px;
+  height: 394px;
+  transform: scale(0.66);
+  position: relative;
+  transition: 0.25s ease-in-out;
+}
+.bass__overlay, .bass__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.bass__overlay {
+  z-index: 2;
+  fill: #fcff4d;
+  mix-blend-mode: multiply;
+}
+.bass__overlay.fade {
+  transition: 0.6s ease-in-out;
+}
+
+.gen-random {
+  position: absolute;
+  bottom: 16px;
+}
+
+button.gen-random {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  padding: 0.9rem 2rem;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  display: inline-block;
+  letter-spacing: 0.05rem;
+  font-weight: 700;
+  font-size: 17px;
+  border-radius: 500px;
+  overflow: hidden;
+  background: #66ff66;
+  color: ghostwhite;
+}
+
+.gen-random span {
+  position: relative;
+  z-index: 10;
+  transition: color 0.4s;
+}
+
+.gen-random:hover span {
+  color: black;
+}
+
+.gen-random::before,
+.gen-random::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.gen-random::before {
+  content: "";
+  background: #000;
+  width: 120%;
+  left: -10%;
+  transform: skew(30deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.gen-random:hover::before {
+  transform: translate3d(100%, 0, 0);
+}
+
+@media (max-width: 940px) {
+  .bass {
+    transform: scale(0.5);
+  }
+}
+@media (max-width: 580px) {
+  .bass {
+    transform: scale(0.38);
+  }
+}
+@media (max-width: 460px) {
+  .bass {
+    transform: scale(0.4);
+  }
+}
